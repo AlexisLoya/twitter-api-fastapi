@@ -1,25 +1,14 @@
-# Python
-from datetime import date
-from typing import Optional
-from uuid import UUID
 # Pydantic
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import Field
 
-class User(BaseModel):
-    user_id: UUID = Field(...)
-    email: EmailStr = Field(...)
+# Models
+from user_base import UserBase
+
+class User(UserBase):
     password: str = Field(
         ...,
         min_length=8,
+        regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$",
+        description="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number and one special character.",
+        
     )
-    first_name: str = Field(
-        ...,
-        min_length=1,
-        max_length=50
-    )
-    last_name: str = Field(
-        ...,
-        min_length=1,
-        max_length=50
-    )
-    birth_day: Optional[date] = Field(default=None)
