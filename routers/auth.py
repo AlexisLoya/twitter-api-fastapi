@@ -52,7 +52,7 @@ def signup(user:UserSignIN = Body(...)):
         user_dict["birth_date"] = str(user_dict["birth_date"])
         user_dict["created_at"] = str(user_dict["created_at"])
         user_dict["updated_at"] = str(user_dict["updated_at"])
-        user_dict["gender"] = str(user_dict["gender"])
+        user_dict["gender"] = str(user_dict["gender"])[8::]
         results.append(user_dict)
         f.seek(0)
         f.write(json.dumps(results))
