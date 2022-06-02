@@ -2,7 +2,7 @@
 from pydantic import Field
 
 # Models
-from user import User
+from .user import User
 
 class UserLogin(User):
     password: str = Field(

@@ -4,7 +4,7 @@ from typing import Optional
 from datetime import datetime
 
 # Pydantic
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, validator
 
 
 class TwitterModel(BaseModel):

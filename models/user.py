@@ -1,28 +1,18 @@
 # Python
 from datetime import date
 from typing import Optional
-from uuid import UUID
 
 # Pydantic
-from pydantic import EmailStr, Field, validator
+from pydantic import Field, validator
 
 # Models
-from genders import Genders
-from utils import TwitterModel
+from .genders import Genders
+from .user_base import UserBase
 
 
-class User(TwitterModel):
-    user_id: UUID = Field(...)
-    user_name: str = Field(
-        ...,
-        min_length=3,
-        max_length=20,
-        example='eseloya'
-    )
-    email: EmailStr = Field(
-        ...,
-        example='eseloya@twitter.com'
-        )
+
+class User(UserBase):
+
     first_name: str = Field(
         ...,
         min_length=1,
@@ -34,7 +24,7 @@ class User(TwitterModel):
         max_length=50
     )
     birth_date: date = Field(..., example='1998-06-23')
-    gender: Optional[Genders] = Field(default=None, example=Genders.MALE)
+    gender: Optional[Genders] = Field(default=None)
     
     
     @validator('user_name')
