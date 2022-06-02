@@ -1,6 +1,4 @@
 """Auth Routers"""
-# Python
-from typing import List
 
 # FastAPI
 from fastapi import APIRouter, status
@@ -22,6 +20,21 @@ router.tags = ["Authentication"]
     summary='Register an User',
 )
 def signup():
+    """Signup
+
+    This path operation register a user in the app
+
+    Parameters: 
+        - Request body parameter
+            - user: UserRegister
+    
+    Returns a json with the basic user information: 
+        - user_id: UUID
+        - email: Emailstr
+        - first_name: str
+        - last_name: str
+        - birth_date: str
+    """
     pass
 
 @router.post(
