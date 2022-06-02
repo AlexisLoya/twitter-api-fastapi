@@ -8,14 +8,15 @@ from fastapi import APIRouter, status
 # Models
 from models import Tweet
 
-router = APIRouter()
+router = APIRouter( prefix="/tweets")
+
 router.tags = ["Tweets"]
 
 # Path Operations
 
 ## Tweets
 @router.get(
-    path='/tweets',
+    path='/',
     response_model=List[Tweet],
     status_code=status.HTTP_200_OK,
     summary='Show all tweets',
@@ -25,7 +26,7 @@ def show_all_tweets():
 
 
 @router.post(
-    path='/tweets',
+    path='/',
     response_model=Tweet,
     status_code=status.HTTP_201_CREATED,
     summary='post a tweet',
@@ -36,7 +37,7 @@ def post_a_tweets():
 
 
 @router.get(
-    path='/tweets/{tweet_id}',
+    path='/{tweet_id}',
     response_model=Tweet,
     status_code=status.HTTP_200_OK,
     summary='Show a Tweet',
@@ -46,7 +47,7 @@ def show_an_user():
 
 
 @router.delete(
-    path='/tweets/{tweet_id}',
+    path='/{tweet_id}',
     response_model=Tweet,
     status_code=status.HTTP_200_OK,
     summary='Delete a Tweet',
@@ -56,7 +57,7 @@ def delete_a_tweet():
 
 
 @router.put(
-    path='/tweets/{tweet_id}',
+    path='/{tweet_id}',
     response_model=Tweet,
     status_code=status.HTTP_200_OK,
     summary='Update a tweet',

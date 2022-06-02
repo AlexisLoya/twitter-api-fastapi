@@ -1,10 +1,10 @@
 # Models
 
 ## User
-from models.user_login import UserLogin
-from models.user import User
-from models.user_base import UserBase
+from .user_login import UserLogin
+from .user import User
+from .user_base import UserBase
 
 ## Tweet
-from models.tweet import Tweet
-from models.genders import Genders
+from .tweet import Tweet
+from .genders import Genders
