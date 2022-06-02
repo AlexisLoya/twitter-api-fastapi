@@ -1,7 +1,7 @@
 # Models
 
 ## User
-from .user_login import UserLogin
+from .user_login import UserLogin,UserSignIN
 from .user import User
 from .user_base import UserBase
 
